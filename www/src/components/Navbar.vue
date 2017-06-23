@@ -1,11 +1,10 @@
 <template>
   <div class="navbar">
-    <div class="container">
       <div class="row">
 
-        <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-inverse">
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-inverse" style="padding: 0; margin: 0;">
           <a class="navbar-brand" href="#">
-            <img class="logo" src="./../assets/logo.jpg" width="30" height="30">
+            <img class="logo" src="./../assets/logo.jpg" width="50" height="50">
           </a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
@@ -34,20 +33,26 @@
                   <div class="col-lg-12">
                     <form id="login-form" @submit.prevent="login" role="form" style="display: block;">
                       <div class="form-group">
-                        <input type="text" name="username" v-model="username" id="username" tabindex="1" class="form-control" placeholder="Username"
-                          value="">
+                        <div class="input-group margin-bottom-sm">
+                          <span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
+                          <input type="text" name="username" v-model="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
+                        </div>
                       </div>
                       <div class="form-group">
-                        <input type="password" name="password" v-model="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                          <input type="password" name="password" v-model="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
+                        </div>
                       </div>
-                      <div class="form-group text-center">
-                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                      <div class="form-group text-left">
+                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember" required>
                         <label for="remember"> Remember Me</label>
                       </div>
                       <div class="form-group">
                         <div class="row">
                           <div class="col-sm-12 col-sm-offset-3">
-                            <button type="button" id="signin-button" class="btn btn-primary btn-lg btn-block">Sign In</button>                            </div>
+                            <button type="button" id="signin-button" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                          </div>
                         </div>
                       </div>
                     </form>
@@ -57,16 +62,24 @@
                   <div class="col-lg-12">
                     <form id="register-form" @submit.prevent="register" role="form" style="display: block;">
                       <div class="form-group">
-                        <input type="text" name="username" v-model="username" id="username" tabindex="1" class="form-control" placeholder="Username"
-                          value="">
+                        <div class="input-group margin-bottom-sm">
+                          <span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
+                          <input type="text" name="username" v-model="username" id="username" tabindex="1" class="form-control" placeholder="Username" required>
+                        </div>
                       </div>
                       <div class="form-group">
-                        <input type="text" name="email" v-model="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                          <input type="email" name="email" v-model="email" id="email" tabindex="2" class="form-control" placeholder="Email">
+                        </div>
                       </div>
                       <div class="form-group">
-                        <input type="password" name="password" v-model="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                          <input type="password" name="password" v-model="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                        </div>
                       </div>
-                      <div class="form-group text-center">
+                      <div class="form-group text-left">
                         <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
                         <label for="remember"> Remember Me</label>
                       </div>
@@ -85,7 +98,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -113,11 +125,21 @@
         this.loginShowing = false;
         this.registerShowing = true;
       },
-      login(){
+      login() {
+        let user = {
+          username: this.username,
+          password: this.password
+        }
+        this.$store.dispatch('login', user)
 
       },
-      createAccount(){
+      createAccount() {
+        let newUser = {
+          username: this.username,
+          email: this.email,
+          password: this.password,
 
+        }
       }
     },
     components: {}
@@ -146,11 +168,16 @@
     outline: none;
     border-color: #fc0095;
   }
-   #register-button, #signin-button {
+
+  #register-button,
+  #signin-button {
     background-color: #fc0095;
     color: white;
     outline: none;
     border-color: #fc0095;
     height: 50px;
+  }
+  .logo{
+    margin-left: 10px;
   }
 </style>
