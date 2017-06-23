@@ -6,6 +6,12 @@ let api = axios.create({
   withCredentials: true
 })
 
+let auth = axios.create({
+  baseUrl: 'http://localhost:3000/',
+  timeout: 2000,
+  withCredentials: true
+})
+
 // REGISTER ALL DATA HERE
 let state = {
   user: {},
