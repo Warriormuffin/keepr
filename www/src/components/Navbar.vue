@@ -6,7 +6,7 @@
           <a class="navbar-brand" href="#">
             <img class="logo" src="./../assets/logo.jpg" width="50" height="50">
           </a>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm" @click="toggleLogin">Login</button>
@@ -152,9 +152,8 @@
   li {
     margin-left: 10px;
   }
-
-  ul {
-    margin-left: 980px;
+  ul{
+    text-align: right;
   }
 
   #login {
