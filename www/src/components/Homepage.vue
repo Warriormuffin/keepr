@@ -1,13 +1,20 @@
 <template>
-  <div class="hello">
+  <div class="homepage">
     <navbar></navbar>
-    <h1>Welcome to Keepr</h1>
-    <p>Get Started</p>
-    <ul>
-      <li><router-link to="login">Login</router-link></li>
-      <li><router-link to="register">Register</router-link></li>
-    </ul>
-    <hr>
+    <img src="./../assets/logo.jpg">
+    <div class="row" id="keep">
+      <div class="keep-loop">
+        <div class="card-columns">
+          <div class="card">
+            <img class="card-img-top img-fluid" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">Card title that wraps to a new line</h4>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,9 +22,14 @@
 import Navbar from "@/components/Navbar"
 export default {
   name: 'hello',
-  data () {
+  data() {
     return {
 
+    }
+  },
+  computed: {
+    allKeeps(){
+      return this.$store.state.keeps
     }
   },
   components: {
@@ -28,8 +40,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
+}
+
+img {
+  width: 60px;
+  text-align: center;
 }
 
 ul {
