@@ -1,0 +1,156 @@
+<template>
+  <div class="navbar">
+    <div class="container">
+      <div class="row">
+
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-inverse">
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="./../assets/logo.jpg" width="30" height="30">
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm" @click="toggleLogin">Login</button>
+              </li>
+              <li class="nav-item">
+                <button type="button" data-toggle="modal" data-target="#login-modal" id="register" class="btn btn-secondary btn-sm" @click="toggleRegister">Register</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Modal -->
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <!--<h5 class="modal-title">Sign In</h5>
+                <h5 class="modal-title">New Account</h5>-->
+                <button type="button" id="register" class="btn btn-secondary btn-sm" @click="toggleLogin">Sign In</button>
+                <button type="button" id="register" class="btn btn-secondary btn-sm" @click="toggleRegister">New Account</button>
+              </div>
+              <div class="modal-body">
+                <div v-if="loginShowing" class="row">
+                  <div class="col-lg-12">
+                    <form id="login-form" @submit.prevent="login" role="form" style="display: block;">
+                      <div class="form-group">
+                        <input type="text" name="username" v-model="username" id="username" tabindex="1" class="form-control" placeholder="Username"
+                          value="">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" name="password" v-model="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                      </div>
+                      <div class="form-group text-center">
+                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                        <label for="remember"> Remember Me</label>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-sm-12 col-sm-offset-3">
+                            <button type="button" id="signin-button" class="btn btn-primary btn-lg btn-block">Sign In</button>                            </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div v-if="registerShowing" class="row">
+                  <div class="col-lg-12">
+                    <form id="register-form" @submit.prevent="register" role="form" style="display: block;">
+                      <div class="form-group">
+                        <input type="text" name="username" v-model="username" id="username" tabindex="1" class="form-control" placeholder="Username"
+                          value="">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="email" v-model="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" name="password" v-model="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                      </div>
+                      <div class="form-group text-center">
+                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                        <label for="remember"> Remember Me</label>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-sm-12 col-sm-offset-3">
+                            <button type="button" id="register-button" class="btn btn-primary btn-lg btn-block">Create Account</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<script>
+  export default {
+    name: 'navbar',
+    data() {
+      return {
+        username: "",
+        password: "",
+        email: "",
+        loginShowing: false,
+        registerShowing: false
+      }
+
+    },
+    computed: {},
+    methods: {
+      toggleLogin() {
+        this.loginShowing = true;
+        this.registerShowing = false;
+      },
+      toggleRegister() {
+        this.loginShowing = false;
+        this.registerShowing = true;
+      },
+      login(){
+
+      },
+      createAccount(){
+
+      }
+    },
+    components: {}
+  }
+
+</script>
+
+
+<style scoped>
+  li {
+    margin-left: 10px;
+  }
+
+  ul {
+    margin-left: 980px;
+  }
+
+  #login {
+    background-color: black;
+    color: white;
+  }
+
+  #register {
+    background-color: #fc0095;
+    color: white;
+    outline: none;
+    border-color: #fc0095;
+  }
+   #register-button, #signin-button {
+    background-color: #fc0095;
+    color: white;
+    outline: none;
+    border-color: #fc0095;
+    height: 50px;
+  }
+</style>

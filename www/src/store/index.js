@@ -75,9 +75,10 @@ let handleError = (err) => {
 }
 
 export default {
-  // ALL DATA LIVES IN THE STATE
   state,
-  // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
+  mutations: {
+
+  },
   actions: {
   }
 

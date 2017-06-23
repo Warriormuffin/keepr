@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <navbar></navbar>
     <h1>Welcome to Keepr</h1>
     <p>Get Started</p>
     <ul>
@@ -11,12 +12,16 @@
 </template>
 
 <script>
+import Navbar from "@/components/Navbar"
 export default {
   name: 'hello',
   data () {
     return {
 
     }
+  },
+  components: {
+    Navbar
   }
 }
 </script>
