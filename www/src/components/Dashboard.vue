@@ -7,14 +7,19 @@
 
 
 <script>
+import Navbar from "@/components/Navbar"
 export default {
   name: 'dashboard',
   data(){
+    return {
 
+    }
   },
   computed:{},
   methods:{},
-  components:{}
+  components:{
+    Navbar
+  }
 }
 </script>
 
