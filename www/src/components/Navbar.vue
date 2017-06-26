@@ -8,17 +8,17 @@
           </a>
           <div>
             <ul class="navbar-nav">
-              <li v-if="loggedOut" class="nav-item">
+              <li v-if="!this.user.username" class="nav-item">
                 <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm" @click="toggleLogin">Login</button>
               </li>
-              <li v-if="loggedOut"  class="nav-item">
+              <li v-if="!this.user.username"  class="nav-item">
                 <button type="button" data-toggle="modal" data-target="#login-modal" id="register" class="btn btn-secondary btn-sm" @click="toggleRegister">Register</button>
               </li>
-              <li v-if="loggedIn" class="nav-item">
-                <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm">Logout</button>
+              <li v-if="this.user.username" class="nav-item">
+                <button type="button" id="login" @click="logout" class="btn btn-secondary btn-sm">Logout</button>
               </li>
-              <li v-if="loggedIn" class="nav-item">
-                <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm">Dashboard</button>
+              <li v-if="this.user.username" class="nav-item">
+                <button type="button" id="register" class="btn btn-secondary btn-sm">Dashboard</button>
               </li>
             </ul>
           </div>
@@ -40,8 +40,8 @@
                     <form id="login-form" @submit.prevent="login" role="form" style="display: block;">
                       <div class="form-group">
                         <div class="input-group margin-bottom-sm">
-                          <span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
-                          <input type="text" name="username" v-model="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
+                          <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                          <input type="text" name="username" v-model="email" id="email" tabindex="1" class="form-control" placeholder="Email"  required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -57,7 +57,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-sm-12 col-sm-offset-3">
-                            <button type="button" id="signin-button" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                            <button type="submit" id="signin-button" class="btn btn-primary btn-lg btn-block">Sign In</button>
                           </div>
                         </div>
                       </div>
@@ -123,7 +123,14 @@
       }
 
     },
-    computed: {},
+    mounted(){
+     this.$store.dispatch('getAuth')
+    },
+    computed: {
+      user(){
+        return this.$store.state.user
+      }
+    },
     methods: {
       toggleLogin() {
         this.loginShowing = true;
@@ -134,11 +141,13 @@
         this.registerShowing = true;
       },
       login() {
+        debugger
         let user = {
-          username: this.username,
+          email: this.email,
           password: this.password
         }
         this.$store.dispatch('login', user)
+        $('#login-modal').modal('hide')
 
       },
       createAccount() {
@@ -147,8 +156,10 @@
           email: this.email,
           password: this.password,
         }
-        debugger
         this.$store.dispatch('register', newUser)
+      },
+      logout(){
+        this.$store.dispatch('logout')
       }
     },
     components: {}
@@ -187,5 +198,6 @@
   }
   .logo{
     margin-left: 10px;
+    float: left;
   }
 </style>
