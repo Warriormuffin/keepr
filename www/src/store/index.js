@@ -12,7 +12,7 @@ let api = axios.create({
 })
 
 let auth = axios.create({
-  baseUrl: 'http://localhost:3000/',
+  baseURL: 'http://localhost:3000/',
   timeout: 2000,
   withCredentials: true
 })
@@ -79,13 +79,45 @@ let handleError = (err) => {
   state.error = err
 }
 
-export default {
+export default new Vuex.Store ({
   state,
   mutations: {
+     setUser(state, user) {
+       debugger
+      state.user = user
+    },
 
   },
   actions: {
-  }
+    register({ commit, dispatch }, user) {
+      debugger
+      auth.post('register', user)
+        .then(res => {
+          commit('setLogin', res.data.data)
+          if (res.data.error) {
+            return handleError(res.data.error)
+          }
+        })
+        .catch(handleError)
+    },
+    login({ commit, dispatch }, user) {
+      auth.post('login', user)
+        .then(res => {
+          debugger
+          commit('setUser', res.data.data)
+        })
+        .catch(handleError)
+    },
+    getAuth({ commit, dispatch }) {
+      auth('authenticate')
+        .then(res => {
+          debugger
+          commit('setUser', res.data.data)
+        }).catch(err => {
+          retour.push()
+        })
+    },
+    }
+})
 
-}
 

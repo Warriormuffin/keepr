@@ -4,6 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import io from 'socket.io-client'
+
+Vue.config.productionTip = false
+
+let socket = io('http://localhost:3000')
+
+socket.on('CONNECTED', function (data) {
+  console.log(data)
+  socket.emit('update', {})
+})
 
 Vue.config.productionTip = false
 

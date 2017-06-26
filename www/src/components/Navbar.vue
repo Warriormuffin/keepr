@@ -8,11 +8,17 @@
           </a>
           <div>
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <li v-if="loggedOut" class="nav-item">
                 <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm" @click="toggleLogin">Login</button>
               </li>
-              <li class="nav-item">
+              <li v-if="loggedOut"  class="nav-item">
                 <button type="button" data-toggle="modal" data-target="#login-modal" id="register" class="btn btn-secondary btn-sm" @click="toggleRegister">Register</button>
+              </li>
+              <li v-if="loggedIn" class="nav-item">
+                <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm">Logout</button>
+              </li>
+              <li v-if="loggedIn" class="nav-item">
+                <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm">Dashboard</button>
               </li>
             </ul>
           </div>
@@ -60,7 +66,7 @@
                 </div>
                 <div v-if="registerShowing" class="row">
                   <div class="col-lg-12">
-                    <form id="register-form" @submit.prevent="register" role="form" style="display: block;">
+                    <form id="register-form" @submit.prevent="createAccount" role="form" style="display: block;">
                       <div class="form-group">
                         <div class="input-group margin-bottom-sm">
                           <span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
@@ -86,7 +92,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-sm-12 col-sm-offset-3">
-                            <button type="button" id="register-button" class="btn btn-primary btn-lg btn-block">Create Account</button>
+                            <button type="submit" id="register-button" class="btn btn-primary btn-lg btn-block">Create Account</button>
                           </div>
                         </div>
                       </div>
@@ -111,7 +117,9 @@
         password: "",
         email: "",
         loginShowing: false,
-        registerShowing: false
+        registerShowing: false,
+        loggedIn: false,
+        loggedOut: true
       }
 
     },
@@ -135,11 +143,12 @@
       },
       createAccount() {
         let newUser = {
-          username: this.username,
+          username: this.username.toLowerCase(),
           email: this.email,
           password: this.password,
-
         }
+        debugger
+        this.$store.dispatch('register', newUser)
       }
     },
     components: {}
