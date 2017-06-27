@@ -54,7 +54,7 @@
             </div>
           </div>
         </form>
-        <form v-if="this.showVault" id="keep-form" @submit.prevent="create-keep" role="form" style="display: block;">
+        <form v-if="this.showVault" id="keep-form" @submit.prevent="createVault" role="form" style="display: block;">
           <div class="form-group">
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon">

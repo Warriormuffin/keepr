@@ -45,6 +45,9 @@ export default new Vuex.Store ({
       setMyKeeps(state, keeps){
         state.myKeeps = keeps
       },
+      setMyVaults(state, vaults){
+        state.myVaults = vaults
+      },
       setAuth(state, user) {
       if(user == null){
         state.user = {}
@@ -69,7 +72,6 @@ export default new Vuex.Store ({
     login({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {
-          debugger
           commit('setUser', res.data.data)
         })
         .catch(handleError)
@@ -93,19 +95,30 @@ export default new Vuex.Store ({
           commit('setKeeps', res.data.data)
         }).catch(handleError)
     },
-    getMyKeeps({commit, dispatch}, username){
-      debugger
+    getMyKeeps({commit, dispatch}){
       api('mykeeps')
         .then(res => {
-          debugger
           commit('setMyKeeps', res.data.data)
         })
+    },
+    getMyVaults({commit, dispatch}, ){
+      debugger
+      api('myvaults')
+      .then(res => {
+        debugger
+        commit('setMyVaults', res.data.data)
+      })
     },
     createKeep({commit, dispatch}, newKeep){
       api.post('keeps', newKeep)
         .then(res => {
-          debugger
           dispatch('getKeeps')
+        }).catch(handleError)
+    },
+    createVault({commit, dispatch}, newVault){
+      api.post('vaults', newVault)
+        .then(res => {
+          dispatch('getMyVaults')
         }).catch(handleError)
     }
     }

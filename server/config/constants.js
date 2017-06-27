@@ -21,7 +21,7 @@ const models = {
   vault: {
     name: "Vault",
     endpoint: "vaults",
-    // useCustomRoutes: true
+    //useCustomRoutes: true
   }
 }
 
