@@ -38,6 +38,7 @@ export default new Vuex.Store ({
     },
       setLogout(state, user){
         state.user = null
+        router.push('/')
       },
       setKeeps(state, keeps){
         state.keeps = keeps
@@ -59,13 +60,13 @@ export default new Vuex.Store ({
   },
   actions: {
     register({ commit, dispatch }, user) {
-
       auth.post('register', user)
         .then(res => {
-          commit('setUser', res.data.data)
+          debugger
           if (res.data.error) {
             return handleError(res.data.error)
           }
+          commit('setUser', res.data.data)
         })
         .catch(handleError)
     },
@@ -102,7 +103,6 @@ export default new Vuex.Store ({
         })
     },
     getMyVaults({commit, dispatch}, ){
-
       api('myvaults')
       .then(res => {
 
@@ -114,7 +114,7 @@ export default new Vuex.Store ({
       api.post('keeps', newKeep)
         .then(res => {
           debugger
-          dispatch('getKeeps')
+          dispatch('getMyKeeps')
         }).catch(handleError)
     },
     createVault({commit, dispatch}, newVault){

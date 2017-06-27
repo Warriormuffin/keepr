@@ -22,8 +22,8 @@
               <h4 class="card-title">{{keep.title}}</h4>
               <div class="btn-group" role="group" aria-label="Basic example">
                 <button id="keep-button" type="button" class="btn btn-secondary">K</button>
-                <button id="share-button" type="button" @click="" class="btn btn-secondary"><i class="fa fa-share" aria-hidden="true"></i></button>
-                <button id="view-button"  type="button" @click="viewKeepSource(keep)" class="btn btn-secondary"><i class="fa fa-eye"aria-hidden="true"></i><a :href=keep.url></a></button>
+                <button id="share-button" type="button" class="btn btn-secondary"><i class="fa fa-share" aria-hidden="true"></i></button>
+                <button id="view-button"  type="button" @click="viewKeepSource(keep)" class="btn btn-secondary"><i class="fa fa-eye"aria-hidden="true"></i><a href></a></button>
               </div>
             </div>
           </div>
