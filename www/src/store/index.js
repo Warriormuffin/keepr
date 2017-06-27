@@ -59,7 +59,7 @@ export default new Vuex.Store ({
   },
   actions: {
     register({ commit, dispatch }, user) {
-      debugger
+
       auth.post('register', user)
         .then(res => {
           commit('setUser', res.data.data)
@@ -102,10 +102,10 @@ export default new Vuex.Store ({
         })
     },
     getMyVaults({commit, dispatch}, ){
-      debugger
+
       api('myvaults')
       .then(res => {
-        debugger
+
         commit('setMyVaults', res.data.data)
       })
     },

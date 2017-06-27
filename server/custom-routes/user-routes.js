@@ -21,8 +21,21 @@ export default {
     method(req, res, next){
       let action = "Get all vaults associated with a certain user"
       Vault.find({creatorId: req.session.uid})
-        .then(vault => {
-          res.send(handleResponse(action, vault))
+        .then(vaults => {
+          res.send(handleResponse(action, vaults))
+        }).catch(error => {
+          return next(handleResponse(action, null, error))
+        })
+    }
+  },
+  getAllPublicKeeps:{
+    path: '/publickeeps',
+    reqType: 'get',
+    method(req, res, next){
+      let action = "Get all public keeps"
+      Keep.vault({public: true})
+        .then(keeps => {
+          res.send(handleREsponse(action, keeps))
         }).catch(error => {
           return next(handleResponse(action, null, error))
         })

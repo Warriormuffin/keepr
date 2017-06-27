@@ -32,6 +32,9 @@ export default {
 
     }
   },
+  mounted(){
+    this.$store.dispatch("getMyVaults")
+  },
   computed: {
     myVaults() {
       return this.$store.state.myVaults

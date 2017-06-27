@@ -157,7 +157,7 @@ export default {
       this.registerShowing = true;
     },
     login() {
-      debugger
+
       let user = {
         email: this.email,
         password: this.password

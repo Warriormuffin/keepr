@@ -123,7 +123,7 @@
         this.showVault = true;
       },
       createKeep(){
-        // debugger
+        //
         // let tagsArr = [];
         // let splitTags = this.tags.split(' ')
         // tagsArr.push(splitTags)
@@ -134,7 +134,7 @@
           tags: this.tags,
           author: this.user.username
         }
-        debugger
+
         this.$store.dispatch('createKeep', newKeep)
       },
       createVault(){
