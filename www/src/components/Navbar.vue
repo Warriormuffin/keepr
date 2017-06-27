@@ -167,7 +167,7 @@ export default {
 
     },
     createAccount() {
-      debugger
+
       let newUser = {
         username: this.username.toLowerCase(),
         email: this.email,

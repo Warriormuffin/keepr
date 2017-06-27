@@ -134,7 +134,7 @@
           tags: this.tags,
           author: this.user.username
         }
-        debugger
+
         this.$store.dispatch('createKeep', newKeep)
       },
       createVault(){

@@ -62,7 +62,7 @@ export default new Vuex.Store ({
     register({ commit, dispatch }, user) {
       auth.post('register', user)
         .then(res => {
-          debugger
+
           if (res.data.error) {
             return handleError(res.data.error)
           }
@@ -110,10 +110,9 @@ export default new Vuex.Store ({
       })
     },
     createKeep({commit, dispatch}, newKeep){
-      debugger
+
       api.post('keeps', newKeep)
         .then(res => {
-          debugger
           dispatch('getMyKeeps')
         }).catch(handleError)
     },
