@@ -90,6 +90,13 @@ export default new Vuex.Store ({
         }).catch(err => {
         })
     },
+    addView({commit, dispatch}, keep){
+      debugger
+      api.put('addView', keep)
+        .then(res => {
+          debugger
+        })
+    },
     getKeeps({commit, dispatch}){
       api('keeps')
         .then(res => {

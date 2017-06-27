@@ -55,7 +55,9 @@
     },
     methods: {
       viewKeepSource(keep){
-
+        debugger
+        keep.viewCount + 1
+        this.$store.dispatch('addView', keep)
       }
     },
     components: {
