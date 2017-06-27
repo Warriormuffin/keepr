@@ -42,6 +42,9 @@ export default new Vuex.Store ({
       setKeeps(state, keeps){
         state.keeps = keeps
       },
+      setMyKeeps(state, keeps){
+        state.myKeeps = keeps
+      },
       setAuth(state, user) {
       if(user == null){
         state.user = {}
@@ -90,9 +93,11 @@ export default new Vuex.Store ({
           commit('setKeeps', res.data.data)
         }).catch(handleError)
     },
-    getMyKeeps({commit, dispatch}){
+    getMyKeeps({commit, dispatch}, username){
+      debugger
       api('mykeeps')
         .then(res => {
+          debugger
           commit('setMyKeeps', res.data.data)
         })
     },

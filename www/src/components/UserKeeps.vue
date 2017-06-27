@@ -10,10 +10,12 @@
               <p class="countBar"> K {{keep.keepCount || 0}} <i class="fa fa-share" aria-hidden="true"> {{keep.shareCount || 0}}</i> <i class="fa fa-eye"
                   aria-hidden="true"> {{keep.viewCount || 0}}</i></p>
               <h4 class="card-title">{{keep.title}}</h4>
-              <div class="btn-group" role="group" aria-label="Basic example">
+              <div id="keep-buttons" class="btn-group" role="group" aria-label="Basic example">
                 <button id="keep-button" type="button" class="btn btn-secondary">K</button>
                 <button id="share-button" type="button" class="btn btn-secondary"><i class="fa fa-share" aria-hidden="true"></i></button>
                 <button id="view-button"  type="button" class="btn btn-secondary"><i class="fa fa-eye"
+                  aria-hidden="true"></i></button>
+                  <button id="delete-button"  type="button" class="btn btn-danger"><i class="fa fa-trash"
                   aria-hidden="true"></i></button>
               </div>
             </div>
@@ -34,11 +36,15 @@ export default {
     }
   },
   mounted(){
+    debugger
     this.$store.dispatch("getMyKeeps")
   },
   computed:{
     myKeeps(){
       return this.$store.state.myKeeps
+    },
+    user(){
+      return this.$store.state.user
     }
   },
   methods:{},
@@ -48,5 +54,24 @@ export default {
 
 
 <style scoped>
+#keep-button{
+    background-color: #fc0095;
+    color: white;
+    margin: 4px;
+  }
+  #share-button{
+    background-color: black;
+    color: white;
+    margin: 4px;
+  }
+  #view-button{
+    background-color: purple;
+    color: white;
+    margin: 4px;
+  }
+  #delete-button{
+    color: white;
+    margin: 4px;
+  }
 
 </style>

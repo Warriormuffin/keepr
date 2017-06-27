@@ -2,7 +2,7 @@ let Keep = require('../models/keep')
 
 export default {
   getKeepsByCreatorId:{
-    path: ':username/keeps',
+    path: '/mykeeps',
     reqType: 'get',
     method(req, res, next){
       debugger
