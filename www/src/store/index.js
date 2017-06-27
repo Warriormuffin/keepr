@@ -84,19 +84,20 @@ export default new Vuex.Store ({
   state,
   mutations: {
      setUser(state, user) {
-       debugger
       state.user = user
     },
       setLogout(state, user){
-        debugger
-        state.user = {}
+        state.user = null
       },
-
       setKeeps(state, keeps){
         state.keeps = keeps
       },
       setAuth(state, user) {
-      state.user = user || {}
+      if(user == null){
+        state.user = {}
+        router.push('/')
+      }
+      state.user = user
     },
 
   },
@@ -127,10 +128,8 @@ export default new Vuex.Store ({
         })
     },
     getAuth({ commit, dispatch }) {
-      debugger
       auth('authenticate')
         .then(res => {
-          debugger
           commit('setAuth', res.data.data)
         }).catch(err => {
         })
@@ -139,6 +138,14 @@ export default new Vuex.Store ({
       api('keeps')
         .then(res => {
           commit('setKeeps', res.data.data)
+        }).catch(handleError)
+    },
+    createKeep({commit, dispatch}, newKeep){
+      debugger
+      api.post('keeps', newKeep)
+        .then(res => {
+          debugger
+          dispatch('getKeeps')
         }).catch(handleError)
     }
     }

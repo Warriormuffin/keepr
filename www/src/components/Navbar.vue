@@ -11,19 +11,19 @@
         </a>
         <div class="navbar-collapse collapse" id="collapsingNavbar">
           <ul class="navbar-nav ml-auto">
-            <li v-if="!this.user.username" class="nav-item">
+            <li v-if="this.user == null" class="nav-item">
               <button type="button" data-toggle="modal" data-target="#login-modal" id="login" class="btn btn-secondary btn-sm" @click="toggleLogin">Login</button>
             </li>
-            <li v-if="!this.user.username" class="nav-item">
+            <li v-if="this.user == null" class="nav-item">
               <button type="button" data-toggle="modal" data-target="#login-modal" id="register" class="btn btn-secondary btn-sm" @click="toggleRegister">Register</button>
             </li>
-            <li v-if="this.user.username" class="nav-item">
+            <li v-if="this.user" class="nav-item">
               <button type="button" id="login" @click="logout" class="btn btn-secondary btn-sm">Logout</button>
             </li>
-            <li v-if="this.user.username" class="nav-item">
-              <button type="button" id="register" class="btn btn-secondary btn-sm">Dashboard</button>
+            <li v-if="this.user" class="nav-item">
+                <router-link to="/dashboard"><button type="button" id="register" class="btn btn-secondary btn-sm">Dashboard</button></router-link><
             </li>
-            <li v-if="this.user.username" class="nav-item">
+            <li v-if="this.user" class="nav-item">
               <h1 class="user-username"> Hi, {{user.username}}</h1>
             </li>
           </ul>

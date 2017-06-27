@@ -14,7 +14,7 @@
       <br>
       <div class="card-columns">
         <div class="keep-loop" v-for="keep in allKeeps">
-          <div class="card">
+          <div class="card text-center">
             <img id="keep-img" class="card-img-top img-fluid" alt="Card image cap" :src="keep.imgUrl" width="100%">
             <div class="card-block">
               <p class="countBar"> K {{keep.keepCount || 0}} <i class="fa fa-share" aria-hidden="true"> {{keep.shareCount || 0}}</i> <i class="fa fa-eye"
