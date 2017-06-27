@@ -83,12 +83,17 @@
         </form>
       </div>
     </div>
+    <user-keeps v-if="showKeep"></user-keeps>
+    <user-vaults v-if="showVault"></user-vaults>
   </div>
+
 </template>
 
 
 <script>
   import Navbar from "@/components/Navbar"
+  import UserKeeps from '@/components/UserKeeps'
+  import UserVaults from "@/components/UserVaults"
   export default {
     name: 'dashboard',
     data() {
@@ -141,7 +146,9 @@
       }
     },
     components: {
-      Navbar
+      Navbar,
+      UserKeeps,
+      UserVaults
     }
   }
 

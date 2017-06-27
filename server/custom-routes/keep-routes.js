@@ -1,5 +1,20 @@
-export default {
+let Keep = require('../models/keep')
 
+export default {
+  getKeepsByCreatorId:{
+    path: ':username/keeps',
+    reqType: 'get',
+    method(req, res, next){
+      debugger
+      let action = "Get all keeps associated with a certain user"
+      Keep.find({creatorId: req.session.uid})
+        .then(keeps => {
+          res.send(handleResponse(action, keeps))
+        }).catch(error => {
+          return next(handleResponse(action, null, error))
+        })
+    }
+  }
 }
 
 
