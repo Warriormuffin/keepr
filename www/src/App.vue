@@ -21,4 +21,7 @@ export default {
   margin-top: 60px;
   /*text-align: center;*/
 }
+button:hover{
+    cursor: pointer;
+  }
 </style>

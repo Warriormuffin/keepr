@@ -1,7 +1,7 @@
 <template>
   <div class="homepage">
     <navbar></navbar>
-      <img id="logo" src="./../assets/logo.jpg">
+    <br>
       <div class="col-lg-12">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search for...">
@@ -23,7 +23,7 @@
               <div class="btn-group" role="group" aria-label="Basic example">
                 <button id="keep-button" type="button" class="btn btn-secondary">K</button>
                 <button id="share-button" type="button" class="btn btn-secondary"><i class="fa fa-share" aria-hidden="true"></i></button>
-                <button id="view-button"  type="button" @click="viewKeepSource(keep)" class="btn btn-secondary"><i class="fa fa-eye"aria-hidden="true"></i><a href></a></button>
+                <button id="view-button"  type="button" @click="viewKeepSource(keep)" class="btn btn-secondary"><a :href="keep.articleLink" target="_blank"><i class="fa fa-eye"aria-hidden="true"></i></a></button>
               </div>
             </div>
           </div>
@@ -120,7 +120,9 @@
     color: white;
     margin: 4px;
   }
-
+  #view-button a{
+    color: white;
+  }
 
   /*.card-columns {
     media-breakpoint-only(sm) {
