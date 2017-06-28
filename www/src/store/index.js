@@ -92,7 +92,7 @@ export default new Vuex.Store ({
     },
     addView({commit, dispatch}, keep){
       debugger
-      api.put('addView', keep)
+      api.put('addview', keep)
         .then(res => {
           debugger
         })
