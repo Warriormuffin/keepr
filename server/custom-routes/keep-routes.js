@@ -49,7 +49,7 @@ export default {
     method(req, res, next){
       debugger
       let action = "Update vault to have added keep id"
-      Keep.findOne({_id: req.params.id})
+      Keep.findOne({_id: req.body.keepId})
         .then(keep => {
           debugger
           keep.vaultIds.push(req.body.vaultId)
@@ -64,11 +64,9 @@ export default {
     path: "/vaultkeeps/:id",
     reqType: 'get',
     method(req, res, next){
-      debugger
       let action = "Get all keeps associated with a certain vault by id"
-      Keep.find({ vaultId: { $in: [req.body.id] } })
+      Keep.find({ vaultIds: { $in: [req.params.id] } })
         .then(keeps => {
-          debugger
           res.send(handleResponse(action, keeps))
         }).catch(error => {
           return next(handleResponse(action, null, error))

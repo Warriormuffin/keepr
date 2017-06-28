@@ -170,7 +170,7 @@ export default new Vuex.Store ({
       api.get('vaultkeeps/' + id)
         .then(res => {
           debugger
-          // commit('setActiveKeeps', res.data.data)
+          commit('setActiveKeeps', res.data.data)
         })
     },
     deleteVault({commit, dispatch}, id){
