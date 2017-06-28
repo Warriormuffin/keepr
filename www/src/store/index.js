@@ -109,6 +109,18 @@ export default new Vuex.Store ({
           commit('setMyKeeps', res.data.data)
         })
     },
+    createKeep({commit, dispatch}, newKeep){
+      api.post('keeps', newKeep)
+        .then(res => {
+          dispatch('getMyKeeps')
+        }).catch(handleError)
+    },
+    deleteKeep({commit, dispatch}, id){
+      api.delete('keeps/' + id)
+        .then(res => {
+          dispatch('getMyKeeps')
+        }).catch(handleError)
+    },
     getMyVaults({commit, dispatch}, ){
       api('myvaults')
       .then(res => {
@@ -116,15 +128,14 @@ export default new Vuex.Store ({
         commit('setMyVaults', res.data.data)
       })
     },
-    createKeep({commit, dispatch}, newKeep){
-
-      api.post('keeps', newKeep)
-        .then(res => {
-          dispatch('getMyKeeps')
-        }).catch(handleError)
-    },
     createVault({commit, dispatch}, newVault){
       api.post('vaults', newVault)
+        .then(res => {
+          dispatch('getMyVaults')
+        }).catch(handleError)
+    },
+    deleteVault({commit, dispatch}, id){
+      api.delete('vaults/' + id)
         .then(res => {
           dispatch('getMyVaults')
         }).catch(handleError)

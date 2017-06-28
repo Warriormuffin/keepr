@@ -42,8 +42,8 @@
               <input type="text" name="tags" v-model="tags" id="tags" tabindex="2" class="form-control" placeholder="Tags"
                 required>
             </div>
-            <input type="checkbox" v-model="this.isPrivate" tabindex="3" class="" name="private" id="private">
-            <label for="remember">Mark as Private?</label>
+            <input type="checkbox" v-model="this.isPublic" tabindex="3" class="" name="private" id="private" checked>
+            <label for="remember">Mark as Public?</label>
           </div>
           <div class="form-group">
             <div id="button-row" class="row">
@@ -110,7 +110,7 @@
         description: "",
         showKeep: true,
         showVault: false,
-        isPrivate: false,
+        isPublic: true,
 
       }
     },
@@ -142,9 +142,12 @@
           keepCount: 0,
           shareCount: 0,
           viewCount: 0,
-          private: isPrivate
+          isPublic: isPublic
         }
-        debugger
+          this.title = ""
+          this.imgUrl = ""
+          this.articleLink = ""
+          this.tags = ""
 
         this.$store.dispatch('createKeep', newKeep)
       },

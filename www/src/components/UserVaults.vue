@@ -11,7 +11,7 @@
                 <button id="view-button" type="button" class="btn btn-secondary">
                   <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
-                <button id="delete-button" type="button" class="btn btn-danger">
+                <button @click="deleteVault(vault._id)" id="delete-button" type="button" class="btn btn-danger">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </div>
@@ -40,7 +40,11 @@ export default {
       return this.$store.state.myVaults
     }
   },
-  methods: {},
+  methods: {
+    deleteVault(id){
+      this.$store.dispatch('deleteVault', id)
+    }
+  },
   components: {}
 }
 </script>

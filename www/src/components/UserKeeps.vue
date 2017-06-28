@@ -15,7 +15,7 @@
                 <button id="share-button" type="button" class="btn btn-secondary"><i class="fa fa-share" aria-hidden="true"></i></button>
                 <button id="view-button"  type="button" class="btn btn-secondary"><i class="fa fa-eye"
                   aria-hidden="true"></i></button>
-                  <button id="delete-button"  type="button" class="btn btn-danger"><i class="fa fa-trash"
+                  <button v-if="" id="delete-button" @click="deleteKeep(keep._id)"  type="button" class="btn btn-danger"><i class="fa fa-trash"
                   aria-hidden="true"></i></button>
               </div>
             </div>
@@ -46,7 +46,11 @@ export default {
       return this.$store.state.user
     }
   },
-  methods:{},
+  methods:{
+    deleteKeep(id){
+      this.$store.dispatch("deleteKeep", id)
+    }
+  },
   components:{}
 }
 </script>
