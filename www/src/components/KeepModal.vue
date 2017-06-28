@@ -10,8 +10,8 @@
         </button>
       </div>
       <div class="row">
-      <div v-for="vault in myVaults" class="modal-body col-6">
-            <h5 class="vaultId">{{vault.title}} <button id="keep-button" type="button" class="btn btn-secondary">K</button></h5>
+      <div  @mouseover="showButton(vault)" @mouseout="hideButton(vault)" v-for="vault in myVaults" class="modal-body col-6">
+            <h5 class="vaultId">{{vault.title}} <button @click="addKeepToVault(vault._id)"  id="keep-button" type="button" class="btn btn-secondary">K</button></h5>
         </div>
       </div>
     </div>
@@ -35,9 +35,23 @@ export default {
   computed:{
     myVaults() {
       return this.$store.state.myVaults
+    },
+    getActiveKeep(){
+      return this.$store.state.activeKeep
     }
   },
-  methods:{},
+  methods:{
+    showButton(vault){
+      vault.activeButton = true;
+    },
+    hideButton(vault){
+      vault.activeButton = false;
+    },
+    addKeepToVault(id){
+      debugger
+      this.$store.dispatch('addKeepToVault', {vaultId: id, keepId: this.getActiveKeep._id})
+    }
+  },
   components:{}
 }
 </script>

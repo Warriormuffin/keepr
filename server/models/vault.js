@@ -8,7 +8,6 @@ var schema = new mongoose.Schema({
   created: { type: Number, default: Date.now() },
   creatorId: {type: ObjectId, ref: models.user.name, required: true},
   keepIds: [{type: ObjectId, ref: models.keep.name}]
-  // vaultIds: [{type: ObjectId, ref: models.vault.name, required: true}]
 });
 
 module.exports = mongoose.model(models.vault.name, schema);

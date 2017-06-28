@@ -25,7 +25,7 @@
                 <button id="view-button" type="button" class="btn btn-secondary">
                   <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
-                <button v-if="" id="delete-button" @click="deleteKeep(keep._id)" type="button" class="btn btn-danger">
+                <button v-if="keep.public" id="delete-button" @click="deleteKeep(keep._id)" type="button" class="btn btn-danger">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </div>

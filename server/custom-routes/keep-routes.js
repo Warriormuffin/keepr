@@ -1,4 +1,5 @@
 let Keep = require('../models/keep')
+let Vault = require('../models/vault')
 
 export default {
   getKeepsByCreatorId:{
@@ -37,6 +38,23 @@ export default {
           keep.viewCount += 1;
           keep.save();
           res.send(handleResponse(action, keep))
+        }).catch(error => {
+          return next(handleResponse(action, null, error))
+        })
+    }
+  },
+  updateVaultKeepIds: {
+    path: '/updatevaultkeepids',
+    reqType: "put",
+    method(req, res, next){
+      debugger
+      let action = "Update vault to have added keep id"
+      Vault.findOne({_id: req.body.vaultId})
+        .then(vault => {
+          debugger
+          vault.keepIds.push(req.body.keepId)
+          vault.save();
+          res.send(handleResponse(action, vault))
         }).catch(error => {
           return next(handleResponse(action, null, error))
         })
