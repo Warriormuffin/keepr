@@ -10,7 +10,7 @@ var schema = new mongoose.Schema({
   creatorId: {type: ObjectId, ref: models.user.name, required: true},
   author: {type: String, required: true},
   tags: [{type: String, required: true}],
-  public: {type: Boolean, defualt: true},
+  private: {type: Boolean, defualt: false},
   keepCount: {type: Number, defualt: 0},
   shareCount: {type: Number, defualt: 0},
   viewCount: {type: Number, defualt: 0}

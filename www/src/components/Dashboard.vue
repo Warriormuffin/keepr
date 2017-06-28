@@ -42,6 +42,8 @@
               <input type="text" name="tags" v-model="tags" id="tags" tabindex="2" class="form-control" placeholder="Tags"
                 required>
             </div>
+            <input type="checkbox" v-model="this.isPrivate" tabindex="3" class="" name="private" id="private">
+            <label for="remember">Mark as Private?</label>
           </div>
           <div class="form-group">
             <div id="button-row" class="row">
@@ -87,6 +89,9 @@
     <user-vaults v-if="showVault"></user-vaults>
   </div>
 
+
+
+
 </template>
 
 
@@ -105,6 +110,7 @@
         description: "",
         showKeep: true,
         showVault: false,
+        isPrivate: false,
 
       }
     },
@@ -135,8 +141,10 @@
           author: this.user.username,
           keepCount: 0,
           shareCount: 0,
-          viewCount: 0
+          viewCount: 0,
+          private: isPrivate
         }
+        debugger
 
         this.$store.dispatch('createKeep', newKeep)
       },
