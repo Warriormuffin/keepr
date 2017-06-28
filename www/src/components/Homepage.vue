@@ -79,11 +79,6 @@
     font-weight: normal;
   }
 
-  #logo {
-    width: 60px;
-    text-align: center;
-  }
-
   ul {
     list-style-type: none;
     padding: 0;

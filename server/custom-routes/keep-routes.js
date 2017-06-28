@@ -51,8 +51,9 @@ export default {
       let action = "Update vault to have added keep id"
       Keep.findOne({_id: req.body.keepId})
         .then(keep => {
-
+          debugger
           keep.vaultIds.push(req.body.vaultId)
+          keep.keepCount += 1
           keep.save();
           res.send(handleResponse(action, keep))
         }).catch(error => {
