@@ -19,7 +19,7 @@ export default new Router({
       component: Dashboard
     },
     {
-      path: "/vault/:vauldId",
+      path: "/vault/:vaultId",
       name: "Vault",
       component: Vault
     }

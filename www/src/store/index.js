@@ -22,6 +22,7 @@ let state = {
   user: {},
   myVaults: {},
   myKeeps: {},
+  activeVault: {},
   keeps: [],
   error: {}
 }
@@ -48,6 +49,10 @@ export default new Vuex.Store ({
       },
       setMyVaults(state, vaults){
         state.myVaults = vaults
+      },
+      setActiveVault(state, vault){
+        debugger
+        state.activeVault = vault
       },
       setAuth(state, user) {
       if(user == null){
@@ -134,9 +139,14 @@ export default new Vuex.Store ({
           dispatch('getMyVaults')
         }).catch(handleError)
     },
-    // goToVault({commit, dispatch}, vault){
-
-    // },
+    getVaultById({commit, dispatch}, id){
+      debugger
+      api.get('vaults', id )
+        .then(res => {
+          debugger
+          commit('setActiveVault', res.data.data[0])
+        })
+    },
     deleteVault({commit, dispatch}, id){
       api.delete('vaults/' + id)
         .then(res => {
