@@ -13,8 +13,8 @@ var schema = new mongoose.Schema({
   private: {type: Boolean, defualt: false},
   keepCount: {type: Number, defualt: 0},
   shareCount: {type: Number, defualt: 0},
-  viewCount: {type: Number, defualt: 0}
-  // vaultIds: [{type: ObjectId, ref: models.vault.name, required: true}]
+  viewCount: {type: Number, defualt: 0},
+  vaultIds: [{type: ObjectId, ref: models.vault.name}]
 });
 
 module.exports = mongoose.model(models.keep.name, schema);

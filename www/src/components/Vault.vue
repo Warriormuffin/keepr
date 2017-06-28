@@ -8,15 +8,15 @@
     </div>
     <div class="row" id="keep">
       <div class="card-columns">
-        <div class="keep-loop" v-for="keep in myKeeps">
+        <div class="keep-loop">
           <div class="card text-center">
-            <img id="keep-img" class="card-img-top img-fluid" alt="Card image cap" :src="keep.imgUrl" width="100%">
+            <img id="keep-img" class="card-img-top img-fluid" alt="Card image cap" width="100%">
             <div class="card-block">
-              <p class="countBar"> K {{keep.keepCount || 0}}
-                <i class="fa fa-share" aria-hidden="true"> {{keep.shareCount || 0}}</i>
-                <i class="fa fa-eye" aria-hidden="true"> {{keep.viewCount || 0}}</i>
+              <p class="countBar"> K
+                <i class="fa fa-share" aria-hidden="true"> </i>
+                <i class="fa fa-eye" aria-hidden="true"> </i>
               </p>
-              <h4 class="card-title">{{keep.title}}</h4>
+              <h4 class="card-title"></h4>
               <div id="keep-buttons" class="btn-group" role="group" aria-label="Basic example">
                 <button id="keep-button" type="button" class="btn btn-secondary">K</button>
                 <button id="share-button" type="button" class="btn btn-secondary">
@@ -25,7 +25,7 @@
                 <button id="view-button" type="button" class="btn btn-secondary">
                   <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
-                <button v-if="keep.public" id="delete-button" @click="deleteKeep(keep._id)" type="button" class="btn btn-danger">
+                <button  id="delete-button" type="button" class="btn btn-danger">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </div>
@@ -49,12 +49,15 @@ export default {
     }
   },
   mounted() {
-    debugger
-    this.$store.dispatch('getVaultById', this.$route.params.vaultId)
+    // this.$store.dispatch('getVaultById', this.$route.params.vaultId)
+    this.$store.dispatch('getKeepsByVaultId', this.$route.params.vaultId)
   },
   computed: {
     getVault() {
       return this.$store.state.activeVault
+    },
+    activeKeep(){
+      return this.$store.state.activeKeep
     }
   },
   methods: {},
