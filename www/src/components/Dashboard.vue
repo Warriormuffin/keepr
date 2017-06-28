@@ -12,9 +12,9 @@
             @click="toggleKeep" type="button" class="btn btn-secondary">K</button></h1>
       </div>
     </div>
-      <br>
     <div id="thing" class="row">
       <div class="col-8 offset-2">
+        <br>
         <form v-if="this.showKeep" id="keep-form" @submit.prevent="createKeep" role="form" style="display: block;">
           <div class="form-group">
             <div class="input-group margin-bottom-sm">
@@ -205,6 +205,9 @@
   }
 
   div.col-12 {
+    border: 1px solid black;
+  }
+  #thing{
     border: 1px solid black;
   }
 

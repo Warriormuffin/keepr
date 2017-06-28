@@ -8,9 +8,7 @@
               <h4 class="card-title">{{vault.title}}</h4>
               <p class="card-text">{{vault.description}}</p>
               <div id="keep-buttons" class="btn-group" role="group" aria-label="Basic example">
-                <button id="view-button" type="button" class="btn btn-secondary">
-                  <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
+                <router-link :to="'/vault/' + vault._id"><button id="view-button" type="button" class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i></button></router-link>
                 <button @click="deleteVault(vault._id)" id="delete-button" type="button" class="btn btn-danger">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
@@ -43,7 +41,10 @@ export default {
   methods: {
     deleteVault(id){
       this.$store.dispatch('deleteVault', id)
-    }
+    },
+    // goToVault(vault){
+    //   this.$store.dispatch('goToVault', vault)
+    // }
   },
   components: {}
 }

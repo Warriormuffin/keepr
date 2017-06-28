@@ -1,7 +1,6 @@
 <template>
   <div class="userkeeps">
     <div class="row" id="keep">
-      <br>
       <div class="card-columns">
         <div class="keep-loop" v-for="keep in myKeeps">
           <div class="card text-center">
@@ -75,6 +74,9 @@ export default {
   #delete-button{
     color: white;
     margin: 4px;
+  }
+  #keep{
+    border: 1px solid black;
   }
 
 </style>

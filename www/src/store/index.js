@@ -134,6 +134,9 @@ export default new Vuex.Store ({
           dispatch('getMyVaults')
         }).catch(handleError)
     },
+    // goToVault({commit, dispatch}, vault){
+
+    // },
     deleteVault({commit, dispatch}, id){
       api.delete('vaults/' + id)
         .then(res => {
