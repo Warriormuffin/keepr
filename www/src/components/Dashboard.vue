@@ -132,7 +132,10 @@
           imgUrl: this.imgUrl,
           articleLink: this.articleLink,
           tags: this.tags,
-          author: this.user.username
+          author: this.user.username,
+          keepCount: 0,
+          shareCount: 0,
+          viewCount: 0
         }
 
         this.$store.dispatch('createKeep', newKeep)
@@ -140,7 +143,8 @@
       createVault(){
         let newVault = {
           title: this.title,
-          description: this.description
+          description: this.description,
+
         }
         this.$store.dispatch('createVault', newVault)
       }
