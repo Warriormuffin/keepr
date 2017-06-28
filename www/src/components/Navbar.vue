@@ -21,7 +21,7 @@
               <button type="button" id="login" @click="logout" class="btn btn-secondary btn-sm">Logout</button>
             </li>
             <li v-if="this.user" class="nav-item">
-                <router-link to="/dashboard"><button type="button" id="register" class="btn btn-secondary btn-sm">Dashboard</button></router-link><
+                <router-link :to="'/dashboard/' + this.user.username" ><button type="button" id="register" class="btn btn-secondary btn-sm">Dashboard</button></router-link>
             </li>
             <li v-if="this.user" class="nav-item">
               <h1 class="user-username"> Hi, {{user.username}}</h1>
