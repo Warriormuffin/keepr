@@ -144,13 +144,13 @@
           keepCount: 0,
           shareCount: 0,
           viewCount: 0,
-          isPublic: isPublic
+          isPublic: this.isPublic
         }
           this.title = ""
           this.imgUrl = ""
           this.articleLink = ""
           this.tags = ""
-
+          debugger
         this.$store.dispatch('createKeep', newKeep)
       },
       createVault(){

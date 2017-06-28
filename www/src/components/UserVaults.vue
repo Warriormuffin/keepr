@@ -42,6 +42,7 @@ export default {
     deleteVault(id){
       this.$store.dispatch('deleteVault', id)
     },
+
     // goToVault(vault){
     //   this.$store.dispatch('goToVault', vault)
     // }

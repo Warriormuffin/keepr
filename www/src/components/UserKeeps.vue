@@ -10,7 +10,7 @@
                   aria-hidden="true"> {{keep.viewCount || 0}}</i></p>
               <h4 class="card-title">{{keep.title}}</h4>
               <div id="keep-buttons" class="btn-group" role="group" aria-label="Basic example">
-                <button id="keep-button" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-secondary">K</button>
+                <button id="keep-button" type="button" data-toggle="modal" data-target="#keepModal" class="btn btn-secondary">K</button>
                 <button id="share-button" type="button" class="btn btn-secondary"><i class="fa fa-share" aria-hidden="true"></i></button>
                 <button id="view-button"  type="button" class="btn btn-secondary"><i class="fa fa-eye"
                   aria-hidden="true"></i></button>
