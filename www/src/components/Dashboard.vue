@@ -150,7 +150,7 @@
           this.imgUrl = ""
           this.articleLink = ""
           this.tags = ""
-          debugger
+
         this.$store.dispatch('createKeep', newKeep)
       },
       createVault(){

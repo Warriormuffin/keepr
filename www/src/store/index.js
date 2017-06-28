@@ -49,18 +49,18 @@ export default new Vuex.Store ({
         state.myKeeps = keeps
       },
       setActiveKeep(state, keep){
-        debugger
+
         state.activeKeep = keep
       },
       setActiveKeeps(state, keeps){
-        debugger
+
         state.activeKeep = keeps
       },
       setMyVaults(state, vaults){
         state.myVaults = vaults
       },
       setActiveVault(state, vault){
-        debugger
+
         state.activeVault = vault
       },
       setAuth(state, user) {
@@ -105,10 +105,10 @@ export default new Vuex.Store ({
         })
     },
     addView({commit, dispatch}, keep){
-      debugger
+
       api.put('addview', keep)
         .then(res => {
-          debugger
+
         })
     },
     getKeeps({commit, dispatch}){
@@ -130,13 +130,13 @@ export default new Vuex.Store ({
         }).catch(handleError)
     },
     getActiveKeep({commit, dispatch}, keep){
-      debugger
+
       commit('setActiveKeep', keep)
     },
     addKeepToVault({commit, dispatch}, vaultData){
       api.put('updatevaultkeepids', vaultData)
         .then(res => {
-          debugger
+
         })
     },
     deleteKeep({commit, dispatch}, id){
@@ -158,18 +158,18 @@ export default new Vuex.Store ({
         }).catch(handleError)
     },
     getVaultById({commit, dispatch}, id){
-      debugger
+
       api.get('vaults', id )
         .then(res => {
-          debugger
+
           commit('setActiveVault', res.data.data[0])
         })
     },
     getKeepsByVaultId({commit, dispatch}, id){
-      debugger
+
       api.get('vaultkeeps/' + id)
         .then(res => {
-          debugger
+
           commit('setActiveKeeps', res.data.data)
         })
     },

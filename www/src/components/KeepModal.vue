@@ -48,7 +48,7 @@ export default {
       vault.activeButton = false;
     },
     addKeepToVault(id){
-      debugger
+
       this.$store.dispatch('addKeepToVault', {vaultId: id, keepId: this.getActiveKeep._id})
     }
   },

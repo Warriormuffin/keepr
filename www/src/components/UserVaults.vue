@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     myVaults() {
-      debugger
+
       return this.$store.state.myVaults
     }
   },

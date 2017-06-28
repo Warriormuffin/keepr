@@ -60,7 +60,7 @@
         this.$store.dispatch('addView', keep)
       },
       setActiveKeep(keep){
-        debugger
+
         this.$store.dispatch('getActiveKeep', keep)
       }
     },
