@@ -12,8 +12,8 @@
   </div>
     <div class="row" id="keep">
       <br>
-      <div class="card-columns">
-        <div class="animated bounceInUp keep-loop" v-for="keep in allKeeps">
+      <div class="card-columns animated bounceInUp">
+        <div class=" keep-loop" v-for="keep in allKeeps">
           <div class="card text-center">
             <img id="keep-img" class="card-img-top img-fluid" alt="Card image cap" :src="keep.imgUrl" width="100%">
             <div class="card-block">
