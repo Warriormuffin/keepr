@@ -61,7 +61,7 @@
                       </div>
                     </div>
                     <div class="form-group text-left">
-                      <input type="checkbox" tabindex="3" class="" name="remember" id="remember" required>
+                      <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
                       <label for="remember"> Remember Me</label>
                     </div>
                     <div class="form-group">
