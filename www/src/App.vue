@@ -24,4 +24,7 @@ export default {
 button:hover{
     cursor: pointer;
   }
+body{
+  background-color: #e9ebee
+}
 </style>

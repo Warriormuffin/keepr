@@ -98,7 +98,7 @@
   }
 
   .card:hover {
-    background-color: #eee;
+    background-color: #ddd;
   }
   .countbar{
     font-weight: bold;

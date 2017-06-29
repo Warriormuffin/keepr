@@ -117,10 +117,17 @@
 
       }
     },
+    mounted(){
+      this.$store.dispatch('getAuth')
+    },
     computed: {
       user() {
         return this.$store.state.user
-      }
+      },
+    //   formatedUsername(){
+    //     debugger
+    //   return this.$store.state.user.username.charAt(0).toUpperCase() + this.$store.state.user.username.slice(1);
+    // }
     },
     methods: {
       toggleKeep(){
@@ -136,15 +143,13 @@
         this.toggle = !this.toggle
       },
       createKeep(){
-        //
-        // let tagsArr = [];
-        // let splitTags = this.tags.split(' ')
-        // tagsArr.push(splitTags)
+        debugger
+        let tagsArray = this.tags.split(' ')
         let newKeep ={
           title: this.title,
           imgUrl: this.imgUrl,
           articleLink: this.articleLink,
-          tags: this.tags,
+          tags: tagsArray,
           author: this.user.username,
           keepCount: 0,
           shareCount: 0,
@@ -162,8 +167,9 @@
         let newVault = {
           title: this.title,
           description: this.description,
-
         }
+          this.title = "";
+          this.description = "";
         this.$store.dispatch('createVault', newVault)
       }
     },

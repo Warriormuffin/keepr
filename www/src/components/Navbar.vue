@@ -23,7 +23,7 @@
                 <router-link :to="'/dashboard/' + this.user.username" ><button type="button" id="register" class="btn btn-secondary btn-sm">Dashboard</button></router-link>
             </li>
             <li v-if="this.user" class="nav-item">
-              <h1 class="user-username"> Hi, {{user.username}}</h1>
+              <h1 class="user-username"> Hi, {{formatedUsername}}</h1>
             </li>
           </ul>
         </div>
@@ -144,6 +144,9 @@ export default {
   computed: {
     user() {
       return this.$store.state.user
+    },
+    formatedUsername(){
+      return this.$store.state.user.username.charAt(0).toUpperCase() + this.$store.state.user.username.slice(1);
     }
   },
   methods: {
@@ -173,6 +176,7 @@ export default {
         password: this.password,
       }
       this.$store.dispatch('register', newUser)
+      $('#login-modal').modal('hide')
     },
     logout() {
       this.$store.dispatch('logout')
