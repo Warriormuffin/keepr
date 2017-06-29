@@ -93,7 +93,7 @@ export default new Vuex.Store ({
       auth.delete('logout')
         .then(res => {
           commit('setLogout', res.data.data)
-        })
+        }).catch(handleError)
     },
     getAuth({ commit, dispatch }) {
       auth('authenticate')
@@ -107,7 +107,7 @@ export default new Vuex.Store ({
       api.put('addview', keep)
         .then(res => {
 
-        })
+        }).catch(handleError)
     },
     getKeeps({commit, dispatch}){
       api('keeps')
@@ -119,7 +119,7 @@ export default new Vuex.Store ({
       api('mykeeps')
         .then(res => {
           commit('setMyKeeps', res.data.data)
-        })
+        }).catch(handleError)
     },
     createKeep({commit, dispatch}, newKeep){
       api.post('keeps', newKeep)
@@ -134,7 +134,7 @@ export default new Vuex.Store ({
       api.put('updatevaultkeepids', vaultData)
         .then(res => {
 
-        })
+        }).catch(handleError)
     },
     deleteKeep({commit, dispatch}, id){
       api.delete('keeps/' + id)
