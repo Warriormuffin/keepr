@@ -2,7 +2,7 @@
   <div class="userkeeps">
     <div class="row" id="keep">
       <div class="card-columns">
-        <div class="keep-loop" v-for="keep in myKeeps">
+        <div class="keep-loop animated bounceInUp" v-for="keep in myKeeps">
           <div class="card text-center">
             <img id="keep-img" class="card-img-top img-fluid" alt="Card image cap" :src="keep.imgUrl" width="100%">
             <div class="card-block">

@@ -3,7 +3,7 @@
     <navbar></navbar>
     <br>
       <div class="col-lg-12">
-    <div class="input-group">
+    <div class="animated bounceInRight input-group">
       <input type="text" class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
         <button id="searchButton" class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -13,7 +13,7 @@
     <div class="row" id="keep">
       <br>
       <div class="card-columns">
-        <div class="keep-loop" v-for="keep in allKeeps">
+        <div class="animated bounceInUp keep-loop" v-for="keep in allKeeps">
           <div class="card text-center">
             <img id="keep-img" class="card-img-top img-fluid" alt="Card image cap" :src="keep.imgUrl" width="100%">
             <div class="card-block">

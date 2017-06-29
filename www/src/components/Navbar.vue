@@ -1,8 +1,7 @@
 <template>
   <div class="navbar">
     <div class="row">
-
-      <nav class="navbar fixed-top navbar-toggleable-sm navbar-light bg-inverse">
+      <nav class="navbar fixed-top navbar-toggleable-sm navbar-light bg-inverse animated bounceInDown">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
