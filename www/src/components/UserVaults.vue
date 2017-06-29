@@ -39,14 +39,13 @@ export default {
   },
   computed: {
     myVaults() {
-
       return this.$store.state.myVaults
     }
   },
   methods: {
     deleteVault(id) {
       this.$store.dispatch('deleteVault', id)
-    },
+    }
 
     // goToVault(vault){
     //   this.$store.dispatch('goToVault', vault)

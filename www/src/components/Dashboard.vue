@@ -9,10 +9,10 @@
     <div id="dashboard-top" class="row">
       <div class="col-12">
         <h1 class="dashboard-heading">My Dashboard <button id="dashboard-buttons" @click="toggleVault" type="button" class="btn btn-secondary">V</button> <button id="dashboard-buttons"
-            @click="toggleKeep" type="button" class="btn btn-secondary">K</button></h1>
+            @click="toggleKeep" type="button" class="btn btn-secondary">K</button> <button @click="toggleForm" id="dashboard-buttons" type="button" class="btn btn-secondary"><i v-if="toggle" class="fa fa-chevron-up" aria-hidden="true"></i><i v-if="!toggle" class="fa fa-chevron-down" aria-hidden="true"></i></button></h1>
       </div>
     </div>
-    <div id="thing" class="row">
+    <div v-if="toggle" id="thing" class="row">
       <div class="col-8 offset-2">
         <br>
         <form v-if="this.showKeep" id="keep-form" @submit.prevent="createKeep" role="form" style="display: block;">
@@ -113,6 +113,7 @@
         showKeep: true,
         showVault: false,
         isPublic: true,
+        toggle: true
 
       }
     },
@@ -129,6 +130,10 @@
       toggleVault(){
         this.showKeep = false;
         this.showVault = true;
+      },
+      toggleForm(){
+
+        this.toggle = !this.toggle
       },
       createKeep(){
         //
