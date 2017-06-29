@@ -52,7 +52,7 @@ export default new Vuex.Store ({
         state.activeKeep = keep
       },
       setActiveKeeps(state, keeps){
-        debugger
+
         state.activeKeep = keeps
       },
       setMyVaults(state, vaults){
@@ -155,10 +155,10 @@ export default new Vuex.Store ({
         }).catch(handleError)
     },
     getVaultById({commit, dispatch}, id){
-      debugger
+
       api.get('vaults/' + id )
         .then(res => {
-          debugger
+
           commit('setActiveVault', res.data.data)
         })
     },

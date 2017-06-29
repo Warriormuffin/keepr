@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted() {
-    debugger
+
     this.$store.dispatch('getVaultById', this.$route.params.vaultId)
     this.$store.dispatch('getKeepsByVaultId', this.$route.params.vaultId)
   },
