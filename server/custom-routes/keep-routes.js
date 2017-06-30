@@ -72,11 +72,22 @@ export default {
           return next(handleResponse(action, null, error))
         })
     }
+  },
+  getKeepsByTagSearch:{
+    path: "/searchtags/:userSearch",
+    reqType: 'get',
+    method(req, res, next){
+      let action = "Get all keeps by associated tag search"
+      Keep.find({ tags: { $in: [req.params.userSearch] } })
+        .then(keeps => {
+          res.send(handleResponse(action, null, error))
+        }).catch(error => {
+          return next(handleResponse(action, null, error))
+        })
+    }
+
   }
 }
-
-
-
 
 
 function handleResponse(action, data, error) {

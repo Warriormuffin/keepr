@@ -144,7 +144,12 @@
       },
       createKeep(){
         debugger
-        let tagsArray = this.tags.split(' ')
+        let tagsArray = []
+        if(this.tags.includes(",")){
+          tagsArray = this.tags.split(',')
+        }else{
+          tagsArray = this.tags.split(" ")
+        }
         let newKeep ={
           title: this.title,
           imgUrl: this.imgUrl,

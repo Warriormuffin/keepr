@@ -173,6 +173,12 @@ export default new Vuex.Store ({
         .then(res => {
           dispatch('getMyVaults')
         }).catch(handleError)
+    },
+    searchByTag({commit, dispatch}, userSearch){
+      api.get('searchtags/' + userSearch)
+        .then(res => {
+          dispatch('setMatchingKeeps', res.data.data)
+        }).catch(handleError)
     }
     }
 })
