@@ -47,7 +47,6 @@ export default {
     path: '/updatevaultkeepids',
     reqType: "put",
     method(req, res, next){
-
       let action = "Update vault to have added keep id"
       Keep.findOne({_id: req.body.keepId})
         .then(keep => {
