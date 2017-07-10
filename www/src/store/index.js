@@ -124,6 +124,7 @@ export default new Vuex.Store ({
     createKeep({commit, dispatch}, newKeep){
       api.post('keeps', newKeep)
         .then(res => {
+          debugger
           dispatch('getMyKeeps')
         }).catch(handleError)
     },
@@ -175,8 +176,10 @@ export default new Vuex.Store ({
         }).catch(handleError)
     },
     searchByTag({commit, dispatch}, userSearch){
-      api.get('searchtags/' + userSearch)
+      debugger
+      api('searchtags/' + userSearch)
         .then(res => {
+          debugger
           dispatch('setMatchingKeeps', res.data.data)
         }).catch(handleError)
     }

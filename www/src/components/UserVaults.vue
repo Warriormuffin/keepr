@@ -1,7 +1,7 @@
 <template>
   <div class="uservaults">
     <div class="row">
-          <div class="card-columns animated bounceInUp">
+          <div class="card-deck animated bounceInUp">
           <div v-for="vault in myVaults">
             <div class="card text-center">
               <div class="card-block">

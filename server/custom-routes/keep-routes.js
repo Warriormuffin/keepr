@@ -74,12 +74,14 @@ export default {
     }
   },
   getKeepsByTagSearch:{
-    path: "/searchtags/:userSearch",
+    path: "/searchtags/:usersearch",
     reqType: 'get',
     method(req, res, next){
+      debugger
       let action = "Get all keeps by associated tag search"
-      Keep.find({ tags: { $in: [req.params.userSearch] } })
+      Keep.find({ tags: { $in: [req.params.usersearch] } })
         .then(keeps => {
+          debugger
           res.send(handleResponse(action, null, error))
         }).catch(error => {
           return next(handleResponse(action, null, error))

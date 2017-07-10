@@ -4,13 +4,13 @@
     <br>
     <div class="col-lg-12">
       <div class="animated bounceInRight input-group">
-        <form @submit.prevent="searchByTag">
-          <input type="text" v-model="userSearch" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button id="searchButton" class="btn btn-secondary" type="submit">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </span>
+        <form id="search-form" @submit.prevent="searchByTag">
+        <input type="text" v-model="userSearch" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button id="searchButton" class="btn btn-secondary" type="submit">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </span>
         </form>
       </div>
     </div>
@@ -74,7 +74,8 @@ export default {
     setActiveKeep(keep) {
       this.$store.dispatch('getActiveKeep', keep)
     },
-    searchByTag(){
+    searchByTag() {
+      debugger
       let userSearch = this.userSearch
       this.$store.dispatch('searchByTag', userSearch)
     }
@@ -125,6 +126,15 @@ a {
   color: white;
 }
 
+#search-form{
+  width: 100%;
+}
+
+.form-control{
+  width: 100%;
+}
+
+
 #keep-button {
   background-color: #fc0095;
   color: white;
@@ -146,6 +156,7 @@ a {
 #view-button a {
   color: white;
 }
+
 
 
 /*.card-columns {
