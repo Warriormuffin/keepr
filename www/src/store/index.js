@@ -55,6 +55,9 @@ export default new Vuex.Store ({
 
         state.activeKeep = keeps
       },
+      setMatchingKeeps(state, keeps){
+        state.keeps = keeps
+      },
       setMyVaults(state, vaults){
         state.myVaults = vaults
       },
@@ -180,7 +183,7 @@ export default new Vuex.Store ({
       api('searchtags/' + userSearch)
         .then(res => {
           debugger
-          dispatch('setMatchingKeeps', res.data.data)
+          commit('setMatchingKeeps', res.data.data)
         }).catch(handleError)
     }
     }

@@ -4,7 +4,7 @@
     <br>
     <div class="col-lg-12">
       <div class="animated bounceInRight input-group">
-        <form id="search-form" @submit.prevent="searchByTag">
+        <form <form class="form-inline" id="search-form" @submit.prevent="searchByTag">
         <input type="text" v-model="userSearch" class="form-control" placeholder="Search for...">
         <span class="input-group-btn">
           <button id="searchButton" class="btn btn-secondary" type="submit">
@@ -27,7 +27,7 @@
               </p>
               <h4 class="card-title">{{keep.title}}</h4>
               <div class="btn-group" role="group" aria-label="Basic example">
-                <button id="keep-button" type="button" @click="setActiveKeep(keep)" data-toggle="modal" data-target="#keepModal" class="btn btn-secondary">K</button>
+                <button v-if="user" id="keep-button" type="button" @click="setActiveKeep(keep)" data-toggle="modal" data-target="#keepModal" class="btn btn-secondary">K</button>
                 <button id="share-button" type="button" class="btn btn-secondary">
                   <i class="fa fa-share" aria-hidden="true"></i>
                 </button>
@@ -127,10 +127,6 @@ a {
 }
 
 #search-form{
-  width: 100%;
-}
-
-.form-control{
   width: 100%;
 }
 
