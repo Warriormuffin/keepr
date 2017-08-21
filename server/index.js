@@ -14,6 +14,7 @@ mongoose.connect(process.env.CONNECTIONSTRING, {
 connection.on('error', console.error.bind(console, 'connection error:'));
 
 connection.once('open', function () {
+	debugger
 	server.listen(process.env.PORT, function () {
 		console.log(`Running on port: ${process.env.PORT}`);
 	})
